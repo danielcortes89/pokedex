@@ -13,8 +13,8 @@ const SinglePokemonComponent = (props) => {
     const getSprite = async () => {
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}/`)
-            console.log(res.data)
-            // pokemon = res.data
+            // console.log(res.data)
+            
             setSinglePokemon(res.data.name)
             setPokemonAbilities(res.data.abilities)
             setPokemonHeight(res.data.height)

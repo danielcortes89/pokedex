@@ -9,6 +9,7 @@ class HomeComponent extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     componentDidMount(){
         this.setState({
@@ -31,6 +32,9 @@ class HomeComponent extends Component {
 
     handleSubmit(e){
         e.preventDefault()
+        this.setState({
+            pokemon: this.props.pokemon
+        })
     }
      
     render() {
@@ -40,14 +44,15 @@ class HomeComponent extends Component {
                 <div>
                     <h2>Home</h2>
                     <div>
-                        <form>
+                        <form onSubmit={this.handleSubmit}>
                             <input 
                                 type="text"
                                 onChange={this.handleChange}
                                 placeholder="Search"/>
-                            <input 
+                            <button 
                                 type="submit"
-                                />
+                                value="Reset"
+                                >Reset</button>
                         </form>
                     </div>
                     <div className="poke-field">
