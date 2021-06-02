@@ -7,18 +7,20 @@ const SinglePokemonComponent = (props) => {
     const [height, setPokemonHeight] =  useState(0)
     const [baseStats, setPokemonStats] =  useState([])
     const [types, setPokemonTypes] =  useState([])
+    const [pokeSprite, setPokeSprite] =  useState('blank')
     // let pokemon = ''
 
     const getSprite = async () => {
         try {
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}/`)
-            console.log(res.data.types)
+            console.log(res.data)
             // pokemon = res.data
             setSinglePokemon(res.data.name)
             setPokemonAbilities(res.data.abilities)
             setPokemonHeight(res.data.height)
             setPokemonStats(res.data.stats)
             setPokemonTypes(res.data.types)
+            setPokeSprite(res.data.sprites.front_default)
         } catch (error) {
             console.log(error)
             return null
@@ -59,6 +61,9 @@ const SinglePokemonComponent = (props) => {
                             <p>{type.type.name}</p>
                         </div>
                     })}
+                </div>
+                <div>
+                    <img src={pokeSprite}/>
                 </div>
                 
             </div>
