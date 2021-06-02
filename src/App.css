@@ -1,6 +1,7 @@
 .poke-field {
     width: 80%;
     margin: 0 auto;
+    padding: 10px;
     background: lightgray;
     display: flex;
     flex-wrap: wrap;
@@ -11,4 +12,8 @@
     border: 1px solid black;
     margin: 5px;
     padding: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
 }

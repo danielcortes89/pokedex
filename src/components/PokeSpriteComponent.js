@@ -1,5 +1,7 @@
 import React, { useState, useEffect }  from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
+
 
 const PokeSpriteComponent = (props) => {
     const [pokeSprite, setPokeSprite] =  useState('blank')
@@ -19,12 +21,12 @@ const PokeSpriteComponent = (props) => {
         getSprite()
     }, [])
     return (
-        <div className="poke-sprite">
-            {props.name}
+        <Link to={`/pokemon/${props.name}`} className="poke-sprite">
+            <p>{props.name}</p>
             {pokeSprite !== 'blank' &&
             <img src={pokeSprite}/>
             }
-        </div>
+        </Link>
     )
 }
 
