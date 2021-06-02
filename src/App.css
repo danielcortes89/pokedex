@@ -1,0 +1,14 @@
+.poke-field {
+    width: 80%;
+    margin: 0 auto;
+    background: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.poke-sprite {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 4px;
+}

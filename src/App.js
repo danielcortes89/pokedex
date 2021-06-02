@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 import Home from './components/HomeComponent'
@@ -34,9 +34,10 @@ const App = () => {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/" component={Home}/>
+          <Route path="/Home" render={() => <Home pokemon={kantoDex}/>}/>
           <Route exact path="/favorites" component={Favorites}/>
           <Route path="/pokemon/:pokemon" component={Single}/>
+          <Redirect to="/home"/>
         </Switch>
       </Router>
     </div>
