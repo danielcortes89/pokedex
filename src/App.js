@@ -36,7 +36,7 @@ const App = () => {
         <Switch>
           <Route path="/Home" render={() => <Home pokemon={kantoDex}/>}/>
           <Route exact path="/favorites" component={Favorites}/>
-          <Route path="/pokemon/:pokemon" component={Single}/>
+          <Route path="/pokemon/:pokemon" component={Single} />
           <Redirect to="/home"/>
         </Switch>
       </Router>
