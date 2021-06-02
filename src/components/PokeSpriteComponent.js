@@ -26,7 +26,7 @@ const PokeSpriteComponent = (props) => {
         <Link to={`/pokemon/${props.name}`} className="poke-sprite">
             <p>{props.name}</p>
             {pokeSprite !== 'blank' &&
-            <img src={pokeSprite}/>
+            <img src={pokeSprite} alt="Sprite of pokemon"/>
             }
         </Link>
     )

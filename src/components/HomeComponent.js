@@ -35,7 +35,7 @@ class HomeComponent extends Component {
      
     render() {
         const { pokemon } = this.state
-        if(pokemon){
+        if(pokemon !== []){
             return (
                 <div>
                     <h2>Home</h2>

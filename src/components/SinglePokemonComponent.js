@@ -29,7 +29,7 @@ const SinglePokemonComponent = (props) => {
 
     useEffect(() => {
         getSprite()
-    }, [])
+    })
     if(singlePokemon){
         return (
             <div>
@@ -63,7 +63,7 @@ const SinglePokemonComponent = (props) => {
                     })}
                 </div>
                 <div>
-                    <img src={pokeSprite}/>
+                    <img src={pokeSprite} alt="Sprite of Pokemon"/>
                 </div>
                 
             </div>
