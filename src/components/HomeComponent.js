@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Sprite from './PokeSpriteComponent'
 
 class HomeComponent extends Component {
     constructor(props){
@@ -13,9 +14,7 @@ class HomeComponent extends Component {
                     <h2>Home</h2>
                     <div className="poke-field">
                         {pokemon.map((poke, index) => {
-                            return <div className="poke-sprite" key={index}>
-                                <span>{poke.name}</span>
-                            </div>
+                            return <Sprite name={poke.name} key={index}/>
                         })}
                     </div>
                 </div>
