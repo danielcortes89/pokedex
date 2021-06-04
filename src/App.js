@@ -13,13 +13,31 @@ import './App.css';
 const App = () => {
   const [kantoDex, setKantoDex] =  useState([])
   const [favorites, setfavorties] =  useState([])
+  const [search, setSearch] = useState([])
+
+  const handleChange = (e) => {
+    const search = e.target.value
+    const currentState = kantoDex
+    
+    const newState = currentState.filter(current => {
+        return current.name.includes(search)
+    })
+
+    setSearch(newState)
+  }
+
+  const resetSearch = (e) => {
+    // e.preventDefault()
+    resetSearch(kantoDex)
+  }
   
   const getKanto = async () => {
 
     try {
         const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=150')
-        // console.log(res.data.results)
+        
         setKantoDex(res.data.results)
+        setSearch(res.data.results)
     } catch (error) {
         console.log(error)
         return null
@@ -47,9 +65,9 @@ const App = () => {
     <div className="App">
       <Router>
         <Switch>
-          <Route path="/Home" render={() => <Home pokemon={kantoDex}/>}/>
+          <Route path="/Home" render={() => <Home pokemon={search} handleChange={handleChange} resetSearch={resetSearch}/>}/>
           <Route exact path="/favorites" component={Favorites}/>
-          <Route path="/pokemon/:pokemon" component={Single} />
+          <Route path="/pokemon/:pokemon" render={() => <Single favorites={favorites}/>} />
           <Redirect to="/home"/>
         </Switch>
       </Router>

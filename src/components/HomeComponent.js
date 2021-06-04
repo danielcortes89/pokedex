@@ -1,53 +1,18 @@
 import React, { Component } from 'react'
 import Sprite from './PokeSpriteComponent'
 
-class HomeComponent extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            pokemon: this.props.pokemon
-        }
-
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
-    // componentDidMount(){
-    //     this.setState({
-    //         pokemon: this.props.pokemon
-    //     })
-    // }
-
-    handleChange(e){
-        const search = e.target.value
-        const currentState = this.state.pokemon
-        
-        const newState = currentState.filter(current => {
-            return current.name.includes(search)
-        })
-
-        this.setState({
-            pokemon: newState
-        })
-    }
-
-    handleSubmit(e){
-        e.preventDefault()
-        this.setState({
-            pokemon: this.props.pokemon
-        })
-    }
-     
-    render() {
-        const { pokemon } = this.state
-        if(pokemon !== []){
+const HomeComponent = (props) => {
+    
+        const { pokemon, handleChange, resetSearch } = props
+        if(pokemon){
             return (
                 <div>
                     <h2>Home</h2>
                     <div>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={resetSearch}>
                             <input 
                                 type="text"
-                                onChange={this.handleChange}
+                                onChange={handleChange}
                                 placeholder="Search"/>
                             <button 
                                 type="submit"
@@ -69,8 +34,6 @@ class HomeComponent extends Component {
                 </div>
             )
         }
-        
-    }
 }
 
 export default HomeComponent
