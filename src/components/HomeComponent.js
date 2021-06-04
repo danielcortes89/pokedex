@@ -5,17 +5,17 @@ class HomeComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            pokemon: []
+            pokemon: this.props.pokemon
         }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    componentDidMount(){
-        this.setState({
-            pokemon: this.props.pokemon
-        })
-    }
+    // componentDidMount(){
+    //     this.setState({
+    //         pokemon: this.props.pokemon
+    //     })
+    // }
 
     handleChange(e){
         const search = e.target.value
