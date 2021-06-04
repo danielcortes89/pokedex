@@ -1,4 +1,5 @@
 import React, { useState, useEffect }  from 'react'
+import { withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 const SinglePokemonComponent = (props) => {
@@ -9,11 +10,13 @@ const SinglePokemonComponent = (props) => {
     const [types, setPokemonTypes] =  useState([])
     const [pokeSprite, setPokeSprite] =  useState('blank')
     // let pokemon = ''
-
+   
     const getSprite = async () => {
+        
         try {
+            // let { pokemon } = useParams()
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}/`)
-            // console.log(res.data)
+            console.log(res.data)
             
             setSinglePokemon(res.data.name)
             setPokemonAbilities(res.data.abilities)
@@ -29,7 +32,7 @@ const SinglePokemonComponent = (props) => {
 
     useEffect(() => {
         getSprite()
-    })
+    }, {})
     if(singlePokemon){
         return (
             <div>
@@ -79,4 +82,4 @@ const SinglePokemonComponent = (props) => {
 }
 
 
-export default SinglePokemonComponent
+export default withRouter(SinglePokemonComponent)

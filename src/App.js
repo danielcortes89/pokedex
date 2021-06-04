@@ -6,8 +6,6 @@ import Home from './components/HomeComponent'
 import Favorites from './components/FavoritesComponent'
 import Single from './components/SinglePokemonComponent'
 
-
-
 import './App.css';
 
 const App = () => {
@@ -67,7 +65,7 @@ const App = () => {
         <Switch>
           <Route path="/Home" render={() => <Home pokemon={search} handleChange={handleChange} resetSearch={resetSearch}/>}/>
           <Route exact path="/favorites" component={Favorites}/>
-          <Route path="/pokemon/:pokemon" render={() => <Single favorites={favorites}/>} />
+          <Route path="/single/:pokemon" render={() => <Single favorites={favorites}/>} />
           <Redirect to="/home"/>
         </Switch>
       </Router>
