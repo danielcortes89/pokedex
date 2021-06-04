@@ -12,6 +12,7 @@ import './App.css';
 
 const App = () => {
   const [kantoDex, setKantoDex] =  useState([])
+  const [favorites, setfavorties] =  useState([])
   
   const getKanto = async () => {
 
@@ -23,10 +24,23 @@ const App = () => {
         console.log(error)
         return null
     }
-}
+  }
+
+  const getFavorites = () => {
+    let toStore = ["Ivysaur", "Squirtle"]
+    let prep = JSON.stringify(toStore)
+
+    localStorage.setItem("favorites", prep)
+
+
+    const favs = localStorage.getItem("favorites")
+    const update = JSON.parse(favs) 
+    setfavorties(update)
+  }
 
   useEffect(() => {
     getKanto()    
+    getFavorites()
   }, [])
   
   return (
