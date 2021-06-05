@@ -1,13 +1,25 @@
 import React, { Component } from 'react'
+import Sprite from './PokeSpriteComponent'
+import { withRouter } from 'react-router-dom'
 
-class FavoritesComponent extends Component {
-    render() {
+const FavoritesComponent = (props) => {
+    const { favorites } = props
+    if(favorites){
         return (
             <div>
-                <h4>Favorites Component</h4>
+                <h2>Favorites</h2>
+                <div className="poke-field">
+                {favorites.map((favorite, index) =>{
+                    return <Sprite name={favorite} key={index}/>
+                })}
+                </div>
             </div>
         )
+    } else {
+        return <div>
+            <h2>No favorites</h2>
+        </div>
     }
 }
 
-export default FavoritesComponent
+export default withRouter(FavoritesComponent)

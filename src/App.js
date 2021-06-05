@@ -81,7 +81,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/Home" render={() => <Home pokemon={search} handleChange={handleChange} resetSearch={resetSearch}/>}/>
-          <Route exact path="/favorites" component={Favorites}/>
+          <Route exact path="/favorites" render={() => <Favorites favorites={favorites}/>}/>
           <Route path="/single/:pokemon" render={() => <Single favorites={favorites} toggleFavorite={toggleFavorite}/>} />
           <Redirect to="/home"/>
         </Switch>
