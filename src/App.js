@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+
 import axios from 'axios'
 
 import Home from './components/HomeComponent'
@@ -10,7 +11,7 @@ import './App.css';
 
 const App = () => {
   const [kantoDex, setKantoDex] =  useState([])
-  const [favorites, setfavorties] =  useState([])
+  const [favorites, setfavorites] =  useState([])
   const [search, setSearch] = useState([])
 
   const handleChange = (e) => {
@@ -28,6 +29,22 @@ const App = () => {
     // e.preventDefault()
     resetSearch(kantoDex)
   }
+
+  const toggleFavorite = (name) => {
+    // console.log( typeof name)
+    if(favorites.includes(name)){
+      const newFavorites = favorites.filter(favorite => favorite !== name)
+      setfavorites(newFavorites)
+      localStorage.setItem("favorites", newFavorites)
+    } else {
+      const newFavorites = favorites
+      newFavorites.push(name)
+      console.log(newFavorites)
+      setfavorites(newFavorites)
+      localStorage.setItem("favorites", newFavorites)
+    }
+    
+  }
   
   const getKanto = async () => {
 
@@ -43,7 +60,7 @@ const App = () => {
   }
 
   const getFavorites = () => {
-    let toStore = ["Ivysaur", "Squirtle"]
+    let toStore = ["ivysaur", "squirtle"]
     let prep = JSON.stringify(toStore)
 
     localStorage.setItem("favorites", prep)
@@ -51,7 +68,7 @@ const App = () => {
 
     const favs = localStorage.getItem("favorites")
     const update = JSON.parse(favs) 
-    setfavorties(update)
+    setfavorites(update)
   }
 
   useEffect(() => {
@@ -65,7 +82,7 @@ const App = () => {
         <Switch>
           <Route path="/Home" render={() => <Home pokemon={search} handleChange={handleChange} resetSearch={resetSearch}/>}/>
           <Route exact path="/favorites" component={Favorites}/>
-          <Route path="/single/:pokemon" render={() => <Single favorites={favorites}/>} />
+          <Route path="/single/:pokemon" render={() => <Single favorites={favorites} toggleFavorite={toggleFavorite}/>} />
           <Redirect to="/home"/>
         </Switch>
       </Router>

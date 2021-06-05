@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 const SinglePokemonComponent = (props) => {
@@ -9,6 +9,7 @@ const SinglePokemonComponent = (props) => {
     const [baseStats, setPokemonStats] =  useState([])
     const [types, setPokemonTypes] =  useState([])
     const [pokeSprite, setPokeSprite] =  useState('blank')
+    const [isFavorite, setfavorites] = useState(false)
     // let pokemon = ''
    
     const getSprite = async () => {
@@ -24,6 +25,14 @@ const SinglePokemonComponent = (props) => {
             setPokemonStats(res.data.stats)
             setPokemonTypes(res.data.types)
             setPokeSprite(res.data.sprites.front_default)
+
+            const favCheck = props.favorites.filter(favorite => {
+                return res.data.name === favorite
+            })
+
+            if(favCheck.length > 0){
+                setfavorites(true)
+            }
         } catch (error) {
             console.log(error)
             return null
@@ -33,6 +42,12 @@ const SinglePokemonComponent = (props) => {
     useEffect(() => {
         getSprite()
     }, {})
+
+    const toggleFavorite = (name) => {
+        props.toggleFavorite(name)
+        props.history.push('/home')
+    }
+
     if(singlePokemon){
         return (
             <div>
@@ -68,6 +83,17 @@ const SinglePokemonComponent = (props) => {
                 <div>
                     <img src={pokeSprite} alt="Sprite of Pokemon"/>
                 </div>
+                {isFavorite &&
+                    <div>
+                        <span>This is one of your favorites.</span>
+                        <button onClick={() => toggleFavorite(singlePokemon)}>Remove?</button>
+                    </div>
+                }    
+                {!isFavorite &&
+                    <div>
+                        <button onClick={() => toggleFavorite(singlePokemon)}>Add To Favorites</button>
+                    </div>
+                }             
                 
             </div>
         )
