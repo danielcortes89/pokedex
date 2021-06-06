@@ -71,6 +71,25 @@
     width: 100%;
 }
 
+/* BUTTONS */
+#btn2 {
+    background-image: linear-gradient(to left, blue, green);
+    color: white;
+}
+
+
+.butn {
+    border: none;
+    padding: 15px;
+    width: 175px;
+    border-radius: 6px;
+}
+
+.stats table {
+    margin: 0 auto;
+}
+
+
 /* POKEMON TYPES */
 
 .poison {
