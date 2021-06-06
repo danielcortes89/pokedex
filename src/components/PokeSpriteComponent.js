@@ -23,10 +23,10 @@ const PokeSpriteComponent = (props) => {
         getSprite()
     })
     return (
-        <Link to={`/single/${props.name}`} className="poke-sprite">
-            <p>{props.name}</p>
+        <Link to={`/single/${props.name}`} className="poke-sprite" className="col-11 col-md-4 col-lg-3 p-1 flex justify-content-center align-items-center">
+            <p className="text-center m-0">{props.name}</p>
             {pokeSprite !== 'blank' &&
-            <img src={pokeSprite} alt="Sprite of pokemon"/>
+            <img src={pokeSprite} alt="Sprite of pokemon" className="poke-sprite-img"/>
             }
         </Link>
     )

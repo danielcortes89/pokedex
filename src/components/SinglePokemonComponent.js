@@ -50,7 +50,7 @@ const SinglePokemonComponent = (props) => {
 
     if(singlePokemon){
         return (
-            <div>
+            <div className="container">
                 <h1>{props.match.params.pokemon}</h1>
                 <div>
                     <p>Abilities:</p>

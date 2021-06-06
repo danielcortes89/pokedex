@@ -6,10 +6,10 @@ const HomeComponent = (props) => {
         const { pokemon, handleChange, resetSearch } = props
         if(pokemon){
             return (
-                <div>
-                    <h2 className="display-4">Home</h2>
-                    <div>
-                        <form onSubmit={resetSearch}>
+                <div className="container">
+                    <h2 className="text-center">Home</h2>
+                    <div className="my-2">
+                        <form onSubmit={resetSearch} className="search">
                             <input 
                                 type="text"
                                 onChange={handleChange}
@@ -20,7 +20,7 @@ const HomeComponent = (props) => {
                                 >Reset</button>
                         </form>
                     </div>
-                    <div className="poke-field">
+                    <div className="poke-field row">
                         {pokemon.map((poke, index) => {
                             return <Sprite name={poke.name} key={index}/>
                         })}

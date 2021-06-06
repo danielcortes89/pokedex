@@ -6,9 +6,9 @@ const FavoritesComponent = (props) => {
     const { favorites } = props
     if(favorites){
         return (
-            <div>
+            <div className="container">
                 <h2>Favorites</h2>
-                <div className="poke-field">
+                <div className="poke-field row">
                 {favorites.map((favorite, index) =>{
                     return <Sprite name={favorite} key={index}/>
                 })}

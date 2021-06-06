@@ -1,11 +1,11 @@
 .poke-field {
-    width: 80%;
-    margin: 0 auto;
+    /* width: 100%; */
+    /* margin: 0 auto; */
     padding: 10px;
     background: lightgray;
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .poke-sprite {
@@ -13,9 +13,17 @@
     margin: 5px;
     padding: 4px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    
     text-decoration: none;
+} 
+
+.poke-sprite p {
+    margin: none;
+}
+
+.poke-sprite-img {
+    margin:  auto;
+    width: 100%;
 }
 
 .header {
@@ -27,4 +35,9 @@
 .header a {
     color: white;
     text-decoration: none;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
 }
