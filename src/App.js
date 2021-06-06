@@ -6,6 +6,7 @@ import axios from 'axios'
 import Home from './components/HomeComponent'
 import Favorites from './components/FavoritesComponent'
 import Single from './components/SinglePokemonComponent'
+import Header from './components/HeaderComponent'
 
 import './App.css';
 
@@ -79,6 +80,7 @@ const App = () => {
   return (
     <div className="App">
       <Router>
+        <Header />
         <Switch>
           <Route path="/Home" render={() => <Home pokemon={search} handleChange={handleChange} resetSearch={resetSearch}/>}/>
           <Route exact path="/favorites" render={() => <Favorites favorites={favorites}/>}/>

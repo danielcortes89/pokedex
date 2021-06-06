@@ -7,7 +7,7 @@ const HomeComponent = (props) => {
         if(pokemon){
             return (
                 <div>
-                    <h2>Home</h2>
+                    <h2 className="display-4">Home</h2>
                     <div>
                         <form onSubmit={resetSearch}>
                             <input 

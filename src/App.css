@@ -17,3 +17,14 @@
     flex-direction: column;
     text-decoration: none;
 }
+
+.header {
+    background: gray;
+    color: white;
+    padding: 3rem;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+}
