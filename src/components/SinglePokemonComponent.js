@@ -54,12 +54,13 @@ const SinglePokemonComponent = (props) => {
                 <div className="dex-body row d-flex justify-content-between">
 
                     {/* READOUT */}
-                    <div className="col-5 info-body">
+                    <div className="col-5 info-body d-flex flex-column justify-content-between p-2">
 
-                        <div className="d-flex align-items-center justify-content-between">
+                        <div className="d-flex flex-column flex-md-row align-items-center justify-content-between">
                             <h2 className="no-marg">{props.match.params.pokemon}</h2>
                             <p className="no-marg">Height: {height}'</p>
                         </div>
+
                         <div>
                             <span>Types:</span>
                             <div className="row">
@@ -72,7 +73,32 @@ const SinglePokemonComponent = (props) => {
                                 })}
                             </div>
                         </div>
-                        
+
+                        <div>
+                            <span>Abilities:</span>
+                            <div className="row">
+                                {abilities.map((ability, index) => {
+                                    return (
+                                        <span key={index} className="col-12 col-md-6 text-center p-1">
+                                            <div className="black">{ability.ability.name}</div>
+                                        </span>
+                                    )
+                                })}
+                            </div>
+                        </div> 
+
+                        {isFavorite &&
+                            <div className="text-center">
+                                <span>This is one of your favorites.</span>
+                                <button onClick={() => toggleFavorite(singlePokemon)}>Remove?</button>
+                            </div>
+                        }    
+                        {!isFavorite &&
+                            <div className="text-center">
+                                <button onClick={() => toggleFavorite(singlePokemon)}>Add To Favorites?</button>
+                            </div>
+                        } 
+
                     </div>
 
                     {/* IMAGE */}
@@ -83,42 +109,32 @@ const SinglePokemonComponent = (props) => {
                     </div>
                 
                 <div>
-                    <p>Abilities:</p>
-                    {abilities.map((ability, index) => {
-                        return <div key={index}>
-                            <p>{ability.ability.name}</p>
-                        </div>
-                    })}
+
+                <div>
+                    <table>
+                        <tr>
+                            {baseStats.map(stat => {
+                                return (
+                                    <th>{stat.stat.name}</th>
+                                )
+                            })}
+                        </tr>
+                        <tr>
+                            {baseStats.map(stat => {
+                                return (
+                                    <th>{stat.base_stat}</th>
+                                )
+                            })}
+                        </tr>
+                    </table>
+                </div>
+
+
+            
                 </div>
             
-                <div>
-                    <ul>
-                        {baseStats.map(stat => {
-                            return <li>
-                                {stat.stat.name}: {stat.base_stat}
-                                </li>
-                        })}
-                    </ul>
-                </div>
-                <div>
-                    <p>Types:</p>
-                    {types.map((type, index) => {
-                        return <div key={index}>
-                            <p>{type.type.name}</p>
-                        </div>
-                    })}
-                </div>
-                {isFavorite &&
-                    <div>
-                        <span>This is one of your favorites.</span>
-                        <button onClick={() => toggleFavorite(singlePokemon)}>Remove?</button>
-                    </div>
-                }    
-                {!isFavorite &&
-                    <div>
-                        <button onClick={() => toggleFavorite(singlePokemon)}>Add To Favorites</button>
-                    </div>
-                }             
+                
+            
                 </div>
             </div>
         )

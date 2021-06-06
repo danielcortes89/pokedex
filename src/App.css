@@ -84,3 +84,8 @@
     color: white;
     width: 100%;
 }
+
+.dark {
+    background: black;
+    color: white;
+}
