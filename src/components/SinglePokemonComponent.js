@@ -51,7 +51,37 @@ const SinglePokemonComponent = (props) => {
     if(singlePokemon){
         return (
             <div className="container">
-                <h1>{props.match.params.pokemon}</h1>
+                <div className="dex-body row d-flex justify-content-between">
+
+                    {/* READOUT */}
+                    <div className="col-5 info-body">
+
+                        <div className="d-flex align-items-center justify-content-between">
+                            <h2 className="no-marg">{props.match.params.pokemon}</h2>
+                            <p className="no-marg">Height: {height}'</p>
+                        </div>
+                        <div>
+                            <span>Types:</span>
+                            <div className="row">
+                                {types.map((type, index) => {
+                                    return (
+                                        <span key={index} className="col-12 col-md-6 text-center p-1">
+                                            <div className={type.type.name}>{type.type.name}</div>
+                                        </span>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    {/* IMAGE */}
+                    <div className="img-wrapper col-5">
+                        <div className="img-field">
+                            <img src={pokeSprite} alt="Sprite of Pokemon"/>
+                        </div>
+                    </div>
+                
                 <div>
                     <p>Abilities:</p>
                     {abilities.map((ability, index) => {
@@ -60,9 +90,7 @@ const SinglePokemonComponent = (props) => {
                         </div>
                     })}
                 </div>
-                <div>
-                    <p>Height: {height}</p>
-                </div>
+            
                 <div>
                     <ul>
                         {baseStats.map(stat => {
@@ -80,9 +108,6 @@ const SinglePokemonComponent = (props) => {
                         </div>
                     })}
                 </div>
-                <div>
-                    <img src={pokeSprite} alt="Sprite of Pokemon"/>
-                </div>
                 {isFavorite &&
                     <div>
                         <span>This is one of your favorites.</span>
@@ -94,7 +119,7 @@ const SinglePokemonComponent = (props) => {
                         <button onClick={() => toggleFavorite(singlePokemon)}>Add To Favorites</button>
                     </div>
                 }             
-                
+                </div>
             </div>
         )
     } else {

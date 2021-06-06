@@ -41,3 +41,46 @@
     display: flex;
     justify-content: center;
 }
+
+.no-marg {
+    margin: 0;
+    margin-bottom: 0;
+}
+
+/* SINGLE POKEDEX ENTRY */
+.dex-body {
+    background: red;
+    padding: 2rem;
+    width: 100%;
+}
+
+.info-body {
+    background: lightcoral;
+}
+
+.img-wrapper {
+    padding: 1rem;
+    background: white;
+}
+
+.img-field {
+    background: black;
+}
+
+.img-field img {
+    width: 100%;
+}
+
+/* POKEMON TYPES */
+
+.poison {
+    background: purple;
+    color: white;
+    width: 100%;
+}
+
+.grass {
+    background: green;
+    color: white;
+    width: 100%;
+}
