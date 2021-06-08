@@ -1,11 +1,6 @@
 .poke-field {
-    /* width: 100%; */
-    /* margin: 0 auto; */
     padding: 10px;
     background: lightgray;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
 }
 
 .poke-sprite {
@@ -13,7 +8,6 @@
     margin: 5px;
     padding: 4px;
     text-align: center;
-    
     text-decoration: none;
 } 
 
@@ -24,6 +18,7 @@
 .poke-sprite-img {
     margin:  auto;
     width: 100%;
+    border-bottom: 3px solid black;
 }
 
 .header {
@@ -102,6 +97,71 @@
     background: green;
     color: white;
     width: 100%;
+}
+
+.fire {
+    background: red;
+    color: white;
+}
+
+.flying {
+    background: skyblue;
+    color: black;
+}
+
+.water {
+    background: blue;
+    color: white;
+}
+
+.bug {
+    background: greenyellow;
+    color: black;
+}
+
+.normal {
+    background: white;
+    color: black;
+}
+
+.ground {
+    background: tan;
+    color: white;
+}
+
+.fighting {
+    background: maroon;
+    color: white;
+}
+
+.rock {
+    background: brown;
+    color: white;
+}
+
+.psychic {
+    background: fuchsia;
+    color: black;
+}
+
+.ice {
+    background: cyan;
+    color: black;
+}
+
+.ghost {
+    background: plum;
+    color: black;
+}
+
+.electric {
+    background: yellow;
+    color: black;
+}
+
+.dragon {
+    background: orange;
+    color: white;
 }
 
 .dark {

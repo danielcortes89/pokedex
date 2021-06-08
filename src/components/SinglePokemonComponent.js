@@ -10,12 +10,10 @@ const SinglePokemonComponent = (props) => {
     const [types, setPokemonTypes] =  useState([])
     const [pokeSprite, setPokeSprite] =  useState('blank')
     const [isFavorite, setfavorites] = useState(false)
-    // let pokemon = ''
    
     const getSprite = async () => {
         
         try {
-            // let { pokemon } = useParams()
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}/`)
             console.log(res.data)
             
