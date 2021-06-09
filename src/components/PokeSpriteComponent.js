@@ -5,6 +5,8 @@ import axios from 'axios'
 
 const PokeSpriteComponent = (props) => {
     const [pokeSprite, setPokeSprite] =  useState('blank')
+    let { name } = props
+
 
     const getSprite = async () => {
         try {
@@ -22,8 +24,8 @@ const PokeSpriteComponent = (props) => {
         getSprite()
     })
     return (
-        <Link to={`/single/${props.name}`} className="poke-sprite" className="col-11 col-md-4 col-lg-3 p-1 flex justify-content-center align-items-center">
-            <p className="text-center m-0">{props.name}</p>
+        <Link to={`/single/${props.name}`} className="poke-sprite col-11 col-md-4 col-lg-3 p-1 flex justify-content-center align-items-center">
+            <p className="text-center m-0">{name.toUpperCase()}</p>
             {pokeSprite !== 'blank' &&
             <img src={pokeSprite} alt="Sprite of pokemon" className="poke-sprite-img"/>
             }

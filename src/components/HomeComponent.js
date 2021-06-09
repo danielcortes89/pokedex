@@ -7,16 +7,18 @@ const HomeComponent = (props) => {
         if(pokemon){
             return (
                 <div className="container">
-                    <h2 className="text-center">Home</h2>
+                    <h2 className="text-center">Kanto Pokedex</h2>
                     <div className="my-2">
                         <form onSubmit={resetSearch} className="search">
                             <input 
                                 type="text"
                                 onChange={handleChange}
-                                placeholder="Search"/>
+                                placeholder="Search"
+                                className="mr-1"/>
                             <button 
                                 type="submit"
                                 value="Reset"
+                                id="searchBtn"
                                 >Reset</button>
                         </form>
                     </div>

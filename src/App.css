@@ -1,15 +1,29 @@
+:root {
+    --red: #C62800;
+    --green: #18291E;
+    --teal: #25968B;
+    --light: #F8F2D3; 
+    --orange: #F99719;
+}
+
 .poke-field {
     padding: 10px;
     background: lightgray;
 }
 
 .poke-sprite {
-    border: 1px solid black;
-    margin: 5px;
-    padding: 4px;
+    margin: 5px 0;
     text-align: center;
     text-decoration: none;
+    transition: transform 0.75s ease;
+    color: black;
 } 
+
+.poke-sprite:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px black;
+    text-decoration: none;
+}
 
 .poke-sprite p {
     margin: none;
@@ -18,13 +32,14 @@
 .poke-sprite-img {
     margin:  auto;
     width: 100%;
-    border-bottom: 3px solid black;
 }
 
 .header {
-    background: gray;
-    color: white;
+    background: var(--red);
+    color: black;
     padding: 3rem;
+    display: flex;
+    align-items: center;
 }
 
 .header a {
@@ -32,9 +47,30 @@
     text-decoration: none;
 }
 
+#light-up {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--teal);
+}
+
 .search {
     display: flex;
     justify-content: center;
+}
+
+.search input[type="text"]{
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid black;
+}
+
+#searchBtn {
+    border: none;
+    padding: 5px;
+    background: teal;
+    color: white;
+    border-radius: 6px;
 }
 
 .no-marg {
