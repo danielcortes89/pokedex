@@ -7,6 +7,7 @@ const HomeComponent = (props) => {
         if(pokemon){
             if(pokemon.length > 0){
                 return (
+                    <div className="main-body">
                     <div className="container">
                         <h2 className="text-center">Kanto Pokedex</h2>
                         <div className="my-2">
@@ -29,18 +30,15 @@ const HomeComponent = (props) => {
                             })}
                         </div>
                     </div>
+                    </div>
                 )
             } else {
                 return (
+                    <div className="main-body">
                     <div className="container">
                         <h2 className="text-center">Kanto Pokedex</h2>
                         <div className="my-2">
                             <form onSubmit={resetSearch} className="search">
-                                {/* <input 
-                                    type="text"
-                                    onChange={handleChange}
-                                    placeholder="Search"
-                                    className="mr-1"/> */}
                                 <button 
                                     type="submit"
                                     value="Reset"
@@ -49,12 +47,13 @@ const HomeComponent = (props) => {
                             </form>
                         </div>
                     </div>
+                    </div>
                 )
             }
             
         } else {
             return (
-                <div>
+                <div className="main-body">
                     <h3>Pokemon failed to load</h3>
                 </div>
             )
