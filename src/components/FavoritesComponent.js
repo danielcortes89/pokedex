@@ -6,6 +6,7 @@ const FavoritesComponent = (props) => {
     const { favorites } = props
     if(favorites){
         return (
+            <div className="main-body">
             <div className="container">
                 <h2>Favorites</h2>
                 <div className="poke-field row">
@@ -14,9 +15,10 @@ const FavoritesComponent = (props) => {
                 })}
                 </div>
             </div>
+            </div>
         )
     } else {
-        return <div>
+        return <div className="main-body">
             <h2>No favorites</h2>
         </div>
     }

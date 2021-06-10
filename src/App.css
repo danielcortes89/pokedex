@@ -87,13 +87,25 @@
 
 /* SINGLE POKEDEX ENTRY */
 .dex-body {
-    background: red;
+    background: var(--red);
     padding: 2rem;
     width: 100%;
 }
 
 .info-body {
-    background: lightcoral;
+    background: var(--red);
+}
+
+.readout {
+    background: var(--green);
+}
+
+.spec {
+    background: var(--orange);
+}
+
+.spec2 {
+    background: var(--light);
 }
 
 .img-wrapper {
@@ -111,7 +123,7 @@
 
 /* BUTTONS */
 #btn2 {
-    background-image: linear-gradient(to left, blue, green);
+    background: var(--orange);
     color: white;
 }
 
@@ -123,10 +135,20 @@
     border-radius: 6px;
 }
 
-.stats table {
-    margin: 0 auto;
+.stats {
+     background: var(--green);
+     padding: 3rem 0;
 }
 
+.stats table, .stats tr {
+    margin: 0 auto;
+    border: 2px solid var(--light);
+}
+
+.stats td {
+    border-left: 2px solid var(--light);
+    border-right: 2px solid var(--light);
+}
 
 /* POKEMON TYPES */
 

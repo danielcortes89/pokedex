@@ -48,18 +48,19 @@ const SinglePokemonComponent = (props) => {
 
     if(singlePokemon){
         return (
+            <div className="main-body pt-3">
             <div className="container">
                 <div className="dex-body ">
                     <div className="row d-flex justify-content-between">
                         {/* READOUT */}
-                        <div className="col-12 col-md-5 info-body d-flex flex-column justify-content-between p-2">
+                        <div className="col-12 col-md-5 info-body d-flex flex-column justify-content-between p-3 readout">
 
-                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between spec p-2">
                                 <h2 className="no-marg">{props.match.params.pokemon}</h2>
                                 <p className="no-marg">Height: {height}'</p>
                             </div>
 
-                            <div>
+                            <div className="spec2 p-2">
                                 <span>Types:</span>
                                 <div className="row">
                                     {types.map((type, index) => {
@@ -119,7 +120,7 @@ const SinglePokemonComponent = (props) => {
                             <tr className="row text-center">
                                 {baseStats.map(stat => {
                                     return (
-                                        <th className="col-2">{stat.base_stat}</th>
+                                        <td className="col-2">{stat.base_stat}</td>
                                     )
                                 })}
                             </tr>
@@ -127,10 +128,11 @@ const SinglePokemonComponent = (props) => {
                     </div>
                 </div>
             </div>
+            </div>
         )
     } else {
         return (
-            <div>
+            <div className="main-body">
                 <h2>No result</h2>
             </div>
         )
