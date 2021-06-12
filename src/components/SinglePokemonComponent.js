@@ -55,12 +55,12 @@ const SinglePokemonComponent = (props) => {
                         {/* READOUT */}
                         <div className="col-12 col-md-5 info-body d-flex flex-column justify-content-between p-3 readout">
 
-                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between spec p-2">
+                            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between spec p-2 mb-3">
                                 <h2 className="no-marg">{props.match.params.pokemon}</h2>
                                 <p className="no-marg">Height: {height}'</p>
                             </div>
 
-                            <div className="spec2 p-2">
+                            <div className="spec2 p-2 mb-3">
                                 <span>Types:</span>
                                 <div className="row">
                                     {types.map((type, index) => {
@@ -73,12 +73,12 @@ const SinglePokemonComponent = (props) => {
                                 </div>
                             </div>
 
-                            <div>
+                            <div className="spec2 p-2 mb-3">
                                 <span>Abilities:</span>
                                 <div className="row">
                                     {abilities.map((ability, index) => {
                                         return (
-                                            <span key={index} className="col-12 col-md-6 text-center">
+                                            <span key={index} className="col-12 col-md-6 text-center mb-2">
                                                 <div className="dark">{ability.ability.name}</div>
                                             </span>
                                         )
@@ -88,8 +88,7 @@ const SinglePokemonComponent = (props) => {
 
                             {isFavorite &&
                                 <div className="text-center">
-                                    <span>This is one of your favorites.</span>
-                                    <button className="butn" id="btn2" onClick={() => toggleFavorite(singlePokemon)}>Remove?</button>
+                                    <button className="butn" id="btn2" onClick={() => toggleFavorite(singlePokemon)}>Remove from Favorites?</button>
                                 </div>
                             }    
                             {!isFavorite &&
