@@ -43,7 +43,7 @@ const SinglePokemonComponent = (props) => {
 
     const toggleFavorite = (name) => {
         props.toggleFavorite(name)
-        props.history.push('/home')
+        props.history.push('/favorites')
     }
 
     if(singlePokemon){

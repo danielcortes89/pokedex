@@ -223,6 +223,7 @@
 .electric {
     background: yellow;
     color: black;
+    border: 1px solid black;
 }
 
 .dragon {

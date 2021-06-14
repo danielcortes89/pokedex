@@ -36,13 +36,15 @@ const App = () => {
     if(favorites.includes(name)){
       const newFavorites = favorites.filter(favorite => favorite !== name)
       setfavorites(newFavorites)
-      localStorage.setItem("favorites", newFavorites)
+      localStorage.setItem("favorites", JSON.stringify(newFavorites))
     } else {
       const newFavorites = favorites
       newFavorites.push(name)
+
       console.log(newFavorites)
+
       setfavorites(newFavorites)
-      localStorage.setItem("favorites", newFavorites)
+      localStorage.setItem("favorites", JSON.stringify(newFavorites))
     }
     
   }
@@ -61,15 +63,21 @@ const App = () => {
   }
 
   const getFavorites = () => {
-    let toStore = ["ivysaur", "squirtle"]
-    let prep = JSON.stringify(toStore)
+    // const favs = localStorage.getItem("favorites")
+    if(localStorage.getItem("favorites")){
+      const update = JSON.parse(localStorage.getItem("favorites")) 
+      setfavorites(update)
+    } else {
+      let toStore = ["pikachu"]
+      let prep = JSON.stringify(toStore)
 
-    localStorage.setItem("favorites", prep)
+      localStorage.setItem("favorites", prep)
 
-
-    const favs = localStorage.getItem("favorites")
-    const update = JSON.parse(favs) 
-    setfavorites(update)
+      const favs = localStorage.getItem("favorites")
+      const update = JSON.parse(favs) 
+      setfavorites(update)
+    }
+  
   }
 
   useEffect(() => {

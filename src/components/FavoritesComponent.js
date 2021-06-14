@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 const FavoritesComponent = (props) => {
     const { favorites } = props
-    if(favorites){
+    if(favorites && favorites.length > 0){
         return (
             <div className="main-body">
             <div className="container">
@@ -18,8 +18,8 @@ const FavoritesComponent = (props) => {
             </div>
         )
     } else {
-        return <div className="main-body">
-            <h2>No favorites</h2>
+        return <div className="main-body pt-3">
+            <h2 className="text-center">No favorites</h2>
         </div>
     }
 }
