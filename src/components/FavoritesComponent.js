@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 const FavoritesComponent = (props) => {
     const { favorites } = props
+    
     if(favorites && favorites.length > 0){
         return (
             <div className="main-body">

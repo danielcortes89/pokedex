@@ -14,6 +14,7 @@ const SinglePokemonComponent = (props) => {
     const getSprite = async () => {
         
         try {
+            // get single pokemon and set hooks for all properties
             const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${props.match.params.pokemon}/`)
             console.log(res.data)
             
@@ -52,7 +53,7 @@ const SinglePokemonComponent = (props) => {
             <div className="container">
                 <div className="dex-body ">
                     <div className="row d-flex justify-content-between">
-                        {/* READOUT */}
+                        {/* READOUT - left/top half*/}
                         <div className="col-12 col-md-5 info-body d-flex flex-column justify-content-between p-3 readout">
 
                             <div className="d-flex flex-column flex-md-row align-items-center justify-content-between spec p-2 mb-3">
@@ -99,7 +100,7 @@ const SinglePokemonComponent = (props) => {
 
                         </div>
 
-                        {/* IMAGE */}
+                        {/* IMAGE  - right top half*/}
                         <div className="img-wrapper col-12 col-md-5">
                             <div className="img-field">
                                 <img src={pokeSprite} alt="Sprite of Pokemon"/>

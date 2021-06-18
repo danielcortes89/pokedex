@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 import Sprite from './PokeSpriteComponent'
 
 const HomeComponent = (props) => {
-    
         const { pokemon, handleChange, resetSearch } = props
+
         if(pokemon){
+            // length check in case of return on axios, but no result
             if(pokemon.length > 0){
                 return (
                     <div className="main-body">

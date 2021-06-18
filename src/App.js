@@ -11,6 +11,7 @@ import Header from './components/HeaderComponent'
 import './App.css';
 
 const App = () => {
+  // 150 pkm, favorites and search
   const [kantoDex, setKantoDex] =  useState([])
   const [favorites, setfavorites] =  useState([])
   const [search, setSearch] = useState([])
@@ -27,22 +28,21 @@ const App = () => {
   }
 
   const resetSearch = (e) => {
-    // e.preventDefault()
     resetSearch(kantoDex)
   }
 
   const toggleFavorite = (name) => {
-    // console.log( typeof name)
     if(favorites.includes(name)){
       const newFavorites = favorites.filter(favorite => favorite !== name)
       setfavorites(newFavorites)
       localStorage.setItem("favorites", JSON.stringify(newFavorites))
     } else {
+      // new array
       const newFavorites = favorites
       newFavorites.push(name)
 
-      console.log(newFavorites)
-
+      
+      // update local
       setfavorites(newFavorites)
       localStorage.setItem("favorites", JSON.stringify(newFavorites))
     }
@@ -50,7 +50,6 @@ const App = () => {
   }
   
   const getKanto = async () => {
-
     try {
         const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=150')
         
@@ -63,12 +62,14 @@ const App = () => {
   }
 
   const getFavorites = () => {
-    // const favs = localStorage.getItem("favorites")
+    
     if(localStorage.getItem("favorites")){
+      // parse from local
       const update = JSON.parse(localStorage.getItem("favorites")) 
       setfavorites(update)
     } else {
       let toStore = ["pikachu"]
+      // Stringify when saving to local
       let prep = JSON.stringify(toStore)
 
       localStorage.setItem("favorites", prep)
